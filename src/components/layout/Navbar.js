@@ -5,17 +5,17 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <Link to="/" className="brand">
-        Film Collections
+        <i class="fas fa-film"></i> Film Collections
       </Link>
       <ul className="nav-links">
         <li>
-          <Link to="!#">Link 1</Link>
+          <Link to="!#">Discover</Link>
         </li>
         <li>
-          <Link to="!#">Link 2</Link>
+          <Link to="!#">Login</Link>
         </li>
         <li>
-          <Link to="!#">Link 3</Link>
+          <Link to="!#">Register</Link>
         </li>
       </ul>
     </nav>

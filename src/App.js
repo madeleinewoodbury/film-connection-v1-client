@@ -1,15 +1,16 @@
 import React, { Fragment } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import Navbar from './components/layout/Navbar';
+import Landing from './components/layout/Landing';
 
 const App = () => {
   return (
     <Fragment>
       <Navbar />
-      <div>
-        <h1>Yo!</h1>
-      </div>
+      <Switch>
+        <Route exact path="/" component={Landing} />
+      </Switch>
     </Fragment>
   );
 };
