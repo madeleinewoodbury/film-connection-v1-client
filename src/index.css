@@ -10,6 +10,7 @@
 @import url('https://fonts.googleapis.com/css?family=Sulphur+Point&display=swap');
 
 * {
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
@@ -19,6 +20,8 @@ body {
   font-size: 1rem;
   line-height: 1.6;
   background-color: white;
+  width: 100%;
+  height: 100%;
 }
 
 a {
@@ -45,7 +48,7 @@ ul {
   align-items: center;
   padding: 0.5rem 1rem;
   position: fixed;
-  width: 100%;
+  width: 100vw;
   z-index: 1;
   top: 0;
 }
@@ -54,7 +57,7 @@ ul {
   color: black;
   padding: 0.45rem;
   margin: 0 0.25rem;
-  font-size: 1.2rem;
+  font-size: 1.7rem;
 }
 
 .navbar a:hover {
@@ -62,7 +65,8 @@ ul {
 }
 
 .navbar .brand {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  letter-spacing: 3px;
 }
 
 .navbar .nav-links {
@@ -73,14 +77,16 @@ ul {
 /* Landing */
 .landing {
   height: 100vh;
+  width: 100%;
   position: relative;
 }
 
 .landing-inner {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
   position: relative;
 }
 
@@ -112,4 +118,97 @@ ul {
 
 .landing .btn-container .btn:hover {
   background-color: var(--primary-color);
+}
+
+/* Media Queries */
+@media screen and (max-width: 890px) {
+  .landing-inner {
+    margin-top: 2rem;
+  }
+
+  .landing .vhs {
+    max-width: 800px;
+  }
+
+  .landing .landing-info h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  /* Navbar */
+  .navbar a {
+    color: black;
+    padding: 0.45rem;
+    margin: 0 0.25rem;
+    font-size: 1.3rem;
+  }
+
+  .navbar a:hover {
+    color: var(--primary-color);
+  }
+
+  .navbar .brand {
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+  }
+
+  .landing-inner {
+    max-width: 800px;
+  }
+
+  .landing .vhs {
+    max-width: 600px;
+  }
+
+  .landing .landing-info h1 {
+    font-size: 1.7rem;
+  }
+
+  .landing .btn-container .btn {
+    padding: 0.25rem 0.5rem;
+    border: none;
+    font-size: 1rem;
+    box-shadow: 1px 2px 5px -1px rgba(0, 0, 0, 0.51);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  /* Landing */
+  .landing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .landing-inner {
+    flex-direction: column;
+    margin-top: 0rem;
+  }
+
+  .landing .vhs {
+    max-width: 150px;
+    margin-bottom: 1rem;
+  }
+
+  .landing .landing-info {
+    position: initial;
+    color: var(--light-color);
+  }
+
+  .landing .landing-info h1 {
+    font-size: 3rem;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+  }
+
+  .landing .btn-container .btn {
+    margin: 0.5rem 1rem;
+    padding: 0.75rem 1.25rem;
+    background-color: var(--primary-color);
+  }
+
+  .landing .btn-container .btn:hover {
+    background-color: var(--light-color);
+  }
 }
