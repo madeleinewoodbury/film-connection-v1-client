@@ -1,0 +1,74 @@
+.movie h1 {
+  font-size: 3rem;
+}
+
+.movie .info span {
+  margin-right: 1rem;
+  border-right: 1px solid grey;
+  padding-right: 1rem;
+}
+
+.movie .info span:last-of-type {
+  border: none;
+}
+
+.movie .content {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.movie .content .poster {
+  margin-right: 1rem;
+}
+
+.movie .content .about {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.movie .content .about .plot {
+  font-size: 1.5rem;
+}
+
+.movie .content .about .credits {
+  margin-top: 2rem;
+}
+
+.movie .content .about .credits p {
+  font-size: 1.1rem;
+}
+
+.movie .form {
+  margin-top: 2rem;
+  max-width: 50%;
+}
+
+.movie .form .form-group {
+  margin: 0.5rem 0;
+}
+
+.form .form-text {
+  display: block;
+  margin-top: 0.3rem;
+  color: #888;
+}
+
+.movie .form select {
+  display: block;
+  width: 100%;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+}
+
+.movie .form .btn {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+}
+
+.movie .form .btn:hover {
+  background-color: var(--dark-color);
+  color: white;
+}
