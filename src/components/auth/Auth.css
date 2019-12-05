@@ -1,7 +1,6 @@
 .auth {
   max-width: 800px;
   margin: 0 auto;
-  /* border: 3px solid black; */
 }
 
 .auth h1 {
@@ -49,4 +48,18 @@ button {
 
 .auth .redirect a {
   color: var(--primary-color);
+}
+
+@media screen and (max-width: 375px) {
+  .auth h1 {
+    font-size: 2.5rem;
+  }
+
+  .auth .lead {
+    font-size: 1.2rem;
+  }
+
+  .auth .form .form-group {
+    margin: 1rem 0;
+  }
 }

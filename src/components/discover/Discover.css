@@ -1,0 +1,54 @@
+.discover h1 {
+  font-size: 2.8rem;
+}
+
+.discover .collections {
+  display: flex;
+  flex-direction: column;
+}
+
+.discover .collections .collection {
+  display: flex;
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  margin: 0.5rem 0;
+}
+
+.discover .collections .collection:nth-of-type(even) {
+  background-color: var(--primary-color);
+  color: black;
+}
+
+.discover .collections .collection .poster {
+  width: 100px;
+  margin-right: 0.5rem 1rem;
+}
+
+.discover .collections .collection .poster img {
+  height: 100%;
+}
+
+.discover .collections .collection .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 1rem;
+}
+
+.discover .collections .collection .info .btn {
+  background-color: var(--primary-color);
+}
+
+.discover .collections .collection:nth-of-type(even) .info .btn {
+  background-color: var(--light-color);
+}
+
+.discover .collections .collection .info .btn:hover {
+  background-color: var(--light-color);
+  color: black;
+}
+
+.discover .collections .collection:nth-of-type(even) .info .btn:hover {
+  background-color: var(--dark-color);
+  color: white;
+}
