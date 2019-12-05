@@ -13,13 +13,13 @@ const Navbar = () => {
           <Link to="!#">Discover</Link>
         </li>
         <li>
-          <Link to="!#">
+          <Link to="/login">
             <i class="fas fa-sign-in-alt hide-lg"></i>{' '}
             <span className="hide-sm">Login</span>
           </Link>
         </li>
         <li>
-          <Link to="!#">
+          <Link to="/register">
             <i class="fas fa-user-plus hide-lg"></i>{' '}
             <span className="hide-sm">Register</span>
           </Link>

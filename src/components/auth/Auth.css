@@ -1,0 +1,52 @@
+.auth {
+  max-width: 800px;
+  margin: 0 auto;
+  /* border: 3px solid black; */
+}
+
+.auth h1 {
+  font-size: 3rem;
+}
+
+.auth .lead {
+  font-size: 1.5rem;
+}
+
+.auth .form .form-group {
+  margin: 1.2rem 0;
+}
+
+.auth .form .form-text {
+  display: block;
+  margin-top: 0.3rem;
+  color: #888;
+}
+
+.auth .form input[type='text'],
+.auth .form input[type='email'],
+.auth .form input[type='password'] {
+  display: block;
+  width: 100%;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+}
+
+.auth .form input[type='submit'],
+button {
+  font: inherit;
+  background-color: var(--primary-color);
+}
+
+.auth .form input[type='submit']:hover {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+}
+
+.auth .redirect {
+  margin-top: 1rem;
+}
+
+.auth .redirect a {
+  color: var(--primary-color);
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import vhs from './vhs.png';
 import './Landing.css';
 
@@ -10,8 +11,12 @@ const Landing = () => {
         <div className="landing-info">
           <h1>Film Collections</h1>
           <div className="btn-container">
-            <button className="btn">Sign Up</button>
-            <button className="btn">Sign In</button>
+            <Link to="/register" className="btn">
+              Sign Up
+            </Link>
+            <Link to="/login" className="btn">
+              Sign In
+            </Link>
           </div>
         </div>
       </div>
