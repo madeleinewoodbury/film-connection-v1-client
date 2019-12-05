@@ -1,0 +1,120 @@
+.landing {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.landing-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.landing .vhs {
+  max-width: 1000px;
+  height: auto;
+}
+
+.landing .landing-info {
+  position: absolute;
+  z-index: 1;
+  color: var(--light-color);
+  text-align: center;
+}
+
+.landing .landing-info h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.landing .btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.landing .btn-container .btn {
+  margin: 0.5rem 1rem;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--primary-color);
+}
+
+.landing .btn-container .btn:hover {
+  background-color: var(--light-color);
+}
+
+@media screen and (max-width: 890px) {
+  .landing-inner {
+    margin-top: 2rem;
+  }
+
+  .landing .vhs {
+    max-width: 800px;
+  }
+
+  .landing .landing-info h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .landing-inner {
+    max-width: 800px;
+  }
+
+  .landing .vhs {
+    max-width: 600px;
+  }
+
+  .landing .landing-info h1 {
+    font-size: 1.7rem;
+  }
+
+  .landing .btn-container .btn {
+    padding: 0.25rem 0.5rem;
+    border: none;
+    font-size: 1rem;
+    box-shadow: 1px 2px 5px -1px rgba(0, 0, 0, 0.51);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .landing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .landing-inner {
+    flex-direction: column;
+    margin-top: -5rem;
+  }
+
+  .landing .vhs {
+    max-width: 180px;
+    margin-bottom: 1rem;
+  }
+
+  .landing .landing-info {
+    position: initial;
+    color: var(--light-color);
+  }
+
+  .landing .landing-info h1 {
+    font-size: 2.5rem;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+  }
+
+  .landing .btn-container .btn {
+    margin: 0.5rem 1rem;
+    padding: 0.75rem 1.25rem;
+    background-color: var(--primary-color);
+  }
+
+  .landing .btn-container .btn:hover {
+    background-color: var(--light-color);
+  }
+}

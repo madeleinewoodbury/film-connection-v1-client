@@ -1,5 +1,6 @@
 import React from 'react';
 import vhs from './vhs.png';
+import './Landing.css';
 
 const Landing = () => {
   return (
