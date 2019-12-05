@@ -20,18 +20,21 @@
 }
 
 .discover .collections .collection .poster {
-  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-right: 0.5rem 1rem;
 }
 
 .discover .collections .collection .poster img {
+  max-width: 120px;
   height: 100%;
 }
 
 .discover .collections .collection .info {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin: 1rem;
 }
 
@@ -41,6 +44,7 @@
 
 .discover .collections .collection:nth-of-type(even) .info .btn {
   background-color: var(--light-color);
+  margin-top: 1rem;
 }
 
 .discover .collections .collection .info .btn:hover {
@@ -51,4 +55,48 @@
 .discover .collections .collection:nth-of-type(even) .info .btn:hover {
   background-color: var(--dark-color);
   color: white;
+}
+
+@media screen and (max-width: 890px) {
+  .discover .collections .collection .info p:first-of-type {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .discover .collections .collection .info p:nth-of-type(2) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .discover h1 {
+    font-size: 2.5rem;
+  }
+
+  .discover .collections .collection .poster img {
+    max-width: 200px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .discover h1 {
+    font-size: 2rem;
+  }
+
+  .discover .collections .collection .poster img {
+    max-width: 100px;
+  }
+}
+
+@media screen and (max-width: 325px) {
+  .discover h1 {
+    font-size: 1.7rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .discover .collections .collection {
+    display: flex;
+    margin: 0;
+  }
 }

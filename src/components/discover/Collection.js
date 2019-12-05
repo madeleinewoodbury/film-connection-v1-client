@@ -11,7 +11,7 @@ const Collection = ({ poster, title, description, author }) => {
       <div className="info">
         <div className="title">
           <h2>{title}</h2>
-          <p>{description}</p>
+          <p className="hide-sm">{description}</p>
           <p>
             <small>Created By: {author}</small>
           </p>

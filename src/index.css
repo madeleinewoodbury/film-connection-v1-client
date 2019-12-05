@@ -45,10 +45,6 @@ img {
   margin-bottom: 3rem;
 }
 
-.hide-lg {
-  display: none;
-}
-
 .btn {
   display: inline-block;
   cursor: pointer;
@@ -60,6 +56,18 @@ img {
 }
 
 /* Media Queries */
+@media screen and (max-width: 890px) {
+  .hide-lg {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .hide-md {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .hide-sm {
     display: none;
@@ -67,5 +75,11 @@ img {
 
   .hide-lg {
     display: inline-block;
+  }
+}
+
+@media screen and (max-width: 325px) {
+  .container {
+    padding: 0;
   }
 }
