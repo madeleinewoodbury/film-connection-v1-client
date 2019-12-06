@@ -1,6 +1,6 @@
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 0.5rem 1rem;
   position: fixed;
@@ -11,7 +11,8 @@
   top: 0;
 }
 
-.navbar a {
+.navbar a,
+.navbar .drop-btn {
   color: black;
   padding: 0.45rem;
   margin: 0 0.25rem;
@@ -22,6 +23,35 @@
   color: var(--primary-color);
 }
 
+.navbar .drop-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.navbar .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.navbar .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.navbar .dropdown-content a {
+  font-size: 1.3rem;
+}
+
+.navbar .dropdown:hover .dropdown-content {
+  display: flex;
+  flex-direction: column;
+}
+
 .navbar .brand {
   font-size: 1.8rem;
   letter-spacing: 3px;
@@ -29,6 +59,32 @@
 
 .navbar .nav-links {
   display: flex;
+}
+
+.navbar .searchbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar .searchbar input[type='text'] {
+  padding: 0.5rem;
+  height: 40px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-right: none;
+  width: 400px;
+}
+
+.navbar .searchbar button {
+  float: right;
+  height: 40px;
+  cursor: pointer;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-left: none;
+  background-color: var(--primary-color);
 }
 
 @media screen and (max-width: 680px) {
