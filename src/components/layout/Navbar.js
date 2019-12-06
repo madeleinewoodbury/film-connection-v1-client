@@ -7,17 +7,19 @@ const Navbar = () => {
   const userLinks = (
     <Fragment>
       <li>
-        <Link to="/discover">Discover</Link>
+        <Link to="/discover">
+          <i class="fas fa-plus"></i> <span className="hide-md">Discover</span>
+        </Link>
       </li>
       <li className="dropdown">
         <Link to="#!" disaled="true" className="drop-btn">
-          <i class="fas fa-user"></i> Madeleine
+          <i class="fas fa-user"></i> <span className="hide-md">Madeleine</span>
         </Link>
         <div class="dropdown-content">
           <Link to="!#">
             <i class="fas fa-cog"></i> Dashboard
           </Link>
-          <Link to="!#">
+          <Link to="/collections">
             <i class="fas fa-film"></i> My Collections
           </Link>
           <Link to="!#">
@@ -48,16 +50,19 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <Link to="/" className="brand">
-        <i class="fas fa-film"></i> <span className="hide-sm">FC</span>
+        <i class="fas fa-film"></i> <span className="hide-md">FC</span>
       </Link>
-      <div className="searchbar">
-        <form>
-          <input type="text" placeholder="Search..." />
-          <button type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </form>
-      </div>
+      {loggedIn && (
+        <div className="searchbar">
+          <form>
+            <input type="text" placeholder="Search..." />
+            <button type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+        </div>
+      )}
+
       <ul className="nav-links">{loggedIn ? userLinks : guestLinks}</ul>
     </nav>
   );

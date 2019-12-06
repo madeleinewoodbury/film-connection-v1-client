@@ -1,12 +1,12 @@
 .navbar {
   display: flex;
-  justify-content: space-around;
+  justify-content: start;
   align-items: center;
   padding: 0.5rem 1rem;
   position: fixed;
   width: 100vw;
   z-index: 10;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   opacity: 0.9;
   top: 0;
 }
@@ -16,11 +16,15 @@
   color: black;
   padding: 0.45rem;
   margin: 0 0.25rem;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
 }
 
 .navbar a:hover {
   color: var(--primary-color);
+}
+
+.navbar a .fas {
+  font-size: 1.3rem;
 }
 
 .navbar .drop-btn {
@@ -52,13 +56,17 @@
   flex-direction: column;
 }
 
-.navbar .brand {
+.navbar .brand,
+.navbar .brand .fas {
   font-size: 1.8rem;
   letter-spacing: 3px;
 }
 
 .navbar .nav-links {
   display: flex;
+  position: absolute;
+  right: 0;
+  margin-right: 1rem;
 }
 
 .navbar .searchbar {
@@ -73,18 +81,30 @@
   font-size: 1rem;
   border: 1px solid #ccc;
   border-right: none;
-  width: 400px;
+  width: 380px;
 }
 
 .navbar .searchbar button {
   float: right;
   height: 40px;
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   font-size: 1rem;
   border: 1px solid #ccc;
   border-left: none;
   background-color: var(--primary-color);
+}
+
+@media screen and (max-width: 890px) {
+  .navbar .searchbar input[type='text'] {
+    height: 35px;
+    width: 200px;
+  }
+
+  .navbar .searchbar button {
+    height: 35px;
+    font-size: 0.9rem;
+  }
 }
 
 @media screen and (max-width: 680px) {
@@ -103,6 +123,10 @@
   .navbar .brand {
     font-size: 1.8rem;
     letter-spacing: 3px;
+  }
+
+  .navbar .dropdown-content {
+    right: 0;
   }
 }
 

@@ -1,60 +1,87 @@
-.discover h1 {
+.section-title {
   font-size: 2.8rem;
 }
 
-.discover .collections {
+.collections {
   display: flex;
   flex-direction: column;
 }
 
-.discover .collections .collection {
+.collections .collection {
   display: flex;
   background-color: var(--dark-color);
+  box-shadow: 1px 2px 5px -1px rgba(0, 0, 0, 0.51);
   color: var(--light-color);
   margin: 0.5rem 0;
+  position: relative;
 }
 
-.discover .collections .collection:nth-of-type(even) {
+.collections .collection:nth-of-type(even) {
   background-color: var(--primary-color);
   color: black;
 }
 
-.discover .collections .collection .poster {
+.collections .collection .poster {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: 0.5rem 1rem;
 }
 
-.discover .collections .collection .poster img {
+.collections .collection .poster img {
   max-width: 120px;
   height: 100%;
 }
 
-.discover .collections .collection .info {
+.collections .collection .info {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   margin: 1rem;
 }
 
-.discover .collections .collection .info .btn {
+.collections .collection .info .btn {
   background-color: var(--primary-color);
 }
 
-.discover .collections .collection:nth-of-type(even) .info .btn {
+.collections .collection:nth-of-type(even) .info .btn {
   background-color: var(--light-color);
   margin-top: 1rem;
 }
 
-.discover .collections .collection .info .btn:hover {
+.collections .collection .info .btn:hover {
   background-color: var(--light-color);
   color: black;
 }
 
-.discover .collections .collection:nth-of-type(even) .info .btn:hover {
+.collections .collection:nth-of-type(even) .info .btn:hover {
   background-color: var(--dark-color);
   color: white;
+}
+
+.collections .collection .delete {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 0.75rem;
+  background-color: var(--danger-color);
+  box-shadow: 1px 2px 3px -1px rgba(0, 0, 0, 0.51);
+  color: white;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.collections .collection .delete:hover {
+  height: 57px;
+  width: 57px;
+  font-size: 1.2rem;
 }
 
 @media screen and (max-width: 890px) {
@@ -69,33 +96,33 @@
 }
 
 @media screen and (max-width: 680px) {
-  .discover h1 {
+  .section-title {
     font-size: 2.5rem;
   }
 
-  .discover .collections .collection .poster img {
+  .collections .collection .poster img {
     max-width: 200px;
   }
 }
 
 @media screen and (max-width: 500px) {
-  .discover h1 {
+  .section-title {
     font-size: 2rem;
   }
 
-  .discover .collections .collection .poster img {
+  .collections .collection .poster img {
     max-width: 100px;
   }
 }
 
 @media screen and (max-width: 325px) {
-  .discover h1 {
+  .section-title {
     font-size: 1.7rem;
     text-align: center;
     margin-bottom: 1rem;
   }
 
-  .discover .collections .collection {
+  .collections .collection {
     display: flex;
     margin: 0;
   }

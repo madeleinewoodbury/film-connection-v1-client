@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Collection = ({ poster, title, description, author }) => {
+const Collection = ({ poster, title, description, author, auth }) => {
   return (
     <div className="collection">
       <div className="poster">
@@ -18,10 +18,15 @@ const Collection = ({ poster, title, description, author }) => {
         </div>
         <div className="link">
           <Link to="!#" className="btn">
-            Explore
+            {auth ? 'View' : 'Explore'}
           </Link>
         </div>
       </div>
+      {auth && (
+        <div className="delete">
+          <i class="fas fa-trash-alt"></i>
+        </div>
+      )}
     </div>
   );
 };
