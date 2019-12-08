@@ -1,5 +1,5 @@
 import React from 'react';
-import Collection from './Collection';
+import CollectionItem from './CollectionItem';
 import './Collections.css';
 
 const Discover = () => {
@@ -7,7 +7,7 @@ const Discover = () => {
     <section>
       <h1 className="section-title">Discover Film Collections</h1>
       <div className="collections">
-        <Collection
+        <CollectionItem
           poster="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"
           title="Cool Movies"
           description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
@@ -15,7 +15,7 @@ const Discover = () => {
           author="John Doe"
           auth={false}
         />
-        <Collection
+        <CollectionItem
           poster="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"
           title="Cool Movies"
           description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
@@ -23,7 +23,7 @@ const Discover = () => {
           author="John Doe"
           auth={false}
         />
-        <Collection
+        <CollectionItem
           poster="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"
           title="Cool Movies"
           description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
@@ -31,7 +31,7 @@ const Discover = () => {
           author="John Doe"
           auth={false}
         />
-        <Collection
+        <CollectionItem
           poster="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"
           title="Cool Movies"
           description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam

@@ -1,33 +1,64 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Collections.css';
+import CollectionItem from './CollectionItem';
 
-const Collection = ({ poster, title, description, author, auth }) => {
+const Collection = () => {
+  const auth = true;
   return (
-    <div className="collection">
-      <div className="poster">
-        <img src={poster} alt="poster" />
-      </div>
-
-      <div className="info">
-        <div className="title">
-          <h2>{title}</h2>
-          <p className="hide-sm">{description}</p>
-          <p>
-            <small>Created By: {author}</small>
-          </p>
-        </div>
-        <div className="link">
-          <Link to="!#" className="btn">
-            {auth ? 'View' : 'Explore'}
-          </Link>
-        </div>
-      </div>
+    <section className="collection-section">
       {auth && (
-        <div className="delete">
-          <i class="fas fa-trash-alt"></i>
+        <div className="edit-btn">
+          <i class="fas fa-pen"></i>
         </div>
       )}
-    </div>
+      <h1 className="section-title">Cool Movies</h1>
+      <div className="collection-info">
+        <h4>
+          <em>{auth ? 'Created: 12/7/2019' : 'By: John Doe'}</em>
+        </h4>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
+          obcaecati repellendus magni amet similique minus?
+        </p>
+      </div>
+      <div className="collection-form">
+        <span>14 films</span>
+        <form>
+          <div className="form-group">
+            <span>Sort by: </span>
+            <select name="collection">
+              <option value="Date Added">Date Added</option>
+              <option value="Alphabetical">Alphabetical</option>
+              <option value="Year Realeased">Year Released</option>
+              <option value="Watched">Watched</option>
+            </select>
+            <span>
+              <i class="fas fa-arrow-up"></i>
+            </span>
+            <span>
+              <i class="fas fa-arrow-down active"></i>
+            </span>
+          </div>
+        </form>
+      </div>
+      <div className="collections">
+        <CollectionItem
+          poster="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"
+          title="The Avengers"
+          year="2012"
+          isCollection={false}
+          auth
+        />
+        <CollectionItem
+          poster="https://m.media-amazon.com/images/M/MV5BMmQxNGRkMjYtZTAyMy00MDUyLThiNmYtODI1NTkyNmI0ZTNlXkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_SX300.jpg"
+          title="Downtown Abbey"
+          year="2019"
+          isCollection={false}
+          auth
+        />
+      </div>
+    </section>
   );
 };
 

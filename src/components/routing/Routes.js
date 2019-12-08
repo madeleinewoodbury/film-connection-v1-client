@@ -4,6 +4,7 @@ import Register from '../auth/Register';
 import Login from '../auth/Login';
 import Discover from '../collections/Discover';
 import Movie from '../movie/Movie';
+import Collection from '../collections/Collection';
 import Collections from '../collections/Collections';
 
 const Routes = () => {
@@ -14,6 +15,7 @@ const Routes = () => {
         <Route exact path="/login" component={Login} />
         <Route exact path="/discover" component={Discover} />
         <Route exact path="/movie" component={Movie} />
+        <Route exact path="/movies" component={Collection} />
         <Route exact path="/collections" component={Collections} />
       </Switch>
     </section>
