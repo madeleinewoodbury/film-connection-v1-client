@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Register from '../auth/Register';
 import Login from '../auth/Login';
+import Dashboard from '../dashboard/Dashboard';
 import Discover from '../collections/Discover';
 import Movie from '../movie/Movie';
 import Collection from '../collections/Collection';
@@ -13,6 +14,7 @@ const Routes = () => {
       <Switch>
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/discover" component={Discover} />
         <Route exact path="/movie" component={Movie} />
         <Route exact path="/movies" component={Collection} />

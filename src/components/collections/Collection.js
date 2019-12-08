@@ -1,15 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Collections.css';
 import CollectionItem from './CollectionItem';
 
 const Collection = () => {
   const auth = true;
+  const [sortUp, setSortUp] = useState(false);
+
+  const handleSort = e => {
+    if (e.target.classList.contains('fa-arrow-up')) {
+      setSortUp(true);
+      console.log(sortUp);
+    } else {
+      setSortUp(false);
+    }
+  };
   return (
     <section className="collection-section">
       {auth && (
         <div className="edit-btn">
-          <i class="fas fa-pen"></i>
+          <Link to="/edit" className="btn">
+            <i className="fas fa-edit"></i> <span>Edit Collection</span>
+          </Link>
         </div>
       )}
       <h1 className="section-title">Cool Movies</h1>
@@ -32,12 +44,21 @@ const Collection = () => {
               <option value="Alphabetical">Alphabetical</option>
               <option value="Year Realeased">Year Released</option>
               <option value="Watched">Watched</option>
+              <option value="Unwatched">Unwatched</option>
             </select>
-            <span>
-              <i class="fas fa-arrow-up"></i>
+            <span onClick={e => handleSort(e)}>
+              <i
+                className={
+                  sortUp ? 'fas fa-arrow-up active' : 'fas fa-arrow-up'
+                }
+              ></i>
             </span>
-            <span>
-              <i class="fas fa-arrow-down active"></i>
+            <span onClick={e => handleSort(e)}>
+              <i
+                className={
+                  sortUp ? 'fas fa-arrow-down' : 'fas fa-arrow-down active'
+                }
+              ></i>
             </span>
           </div>
         </form>
@@ -48,14 +69,14 @@ const Collection = () => {
           title="The Avengers"
           year="2012"
           isCollection={false}
-          auth
+          auth={auth}
         />
         <CollectionItem
           poster="https://m.media-amazon.com/images/M/MV5BMmQxNGRkMjYtZTAyMy00MDUyLThiNmYtODI1NTkyNmI0ZTNlXkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_SX300.jpg"
           title="Downtown Abbey"
           year="2019"
           isCollection={false}
-          auth
+          auth={auth}
         />
       </div>
     </section>

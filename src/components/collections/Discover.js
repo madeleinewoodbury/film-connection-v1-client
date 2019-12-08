@@ -14,6 +14,7 @@ const Discover = () => {
             reprehenderit numquam animi!"
           author="John Doe"
           auth={false}
+          isCollection
         />
         <CollectionItem
           poster="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"
@@ -22,6 +23,7 @@ const Discover = () => {
             reprehenderit numquam animi!"
           author="John Doe"
           auth={false}
+          isCollection
         />
         <CollectionItem
           poster="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"
@@ -30,6 +32,7 @@ const Discover = () => {
             reprehenderit numquam animi!"
           author="John Doe"
           auth={false}
+          isCollection
         />
         <CollectionItem
           poster="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"
@@ -38,6 +41,7 @@ const Discover = () => {
             reprehenderit numquam animi!"
           author="John Doe"
           auth={false}
+          isCollection
         />
       </div>
     </section>

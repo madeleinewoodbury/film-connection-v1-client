@@ -16,13 +16,13 @@ const Navbar = () => {
           <i class="fas fa-user"></i> <span className="hide-md">Madeleine</span>
         </Link>
         <div class="dropdown-content">
-          <Link to="!#">
+          <Link to="/dashboard">
             <i class="fas fa-cog"></i> Dashboard
           </Link>
           <Link to="/collections">
             <i class="fas fa-film"></i> My Collections
           </Link>
-          <Link to="!#">
+          <Link to="/">
             <i class="fas fa-sign-out-alt"></i> Logout
           </Link>
         </div>
@@ -55,7 +55,7 @@ const Navbar = () => {
       {loggedIn && (
         <div className="searchbar">
           <form>
-            <input type="text" placeholder="Search..." />
+            <input type="text" placeholder="Search films..." />
             <button type="submit">
               <i class="fas fa-search"></i>
             </button>

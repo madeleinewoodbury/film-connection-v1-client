@@ -2,25 +2,33 @@
   font-size: 2.8rem;
 }
 
-.collection-section {
+.collection-section,
+.collections-section {
   position: relative;
 }
 
-.collection-section .edit-btn {
+.collection-section .edit-btn,
+.collections-section .create-btn {
   position: absolute;
   right: 0;
   top: 0;
+  margin-top: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
-  background-color: var(--success-color);
+}
+
+.collection-section .edit-btn .btn,
+.collections-section .create-btn .btn {
+  padding: 0.3rem 0.8rem;
+  background-color: var(--light-color);
+  font-size: 1.1rem;
+}
+
+.collection-section .edit-btn .btn:hover,
+.collections-section .create-btn .btn:hover {
+  background-color: var(--dark-color);
   color: white;
-  font-size: 2rem;
-  border-radius: 50px;
-  height: 60px;
-  width: 60px;
-  transition: 0.5s;
 }
 
 .collection-item .watched,
@@ -168,6 +176,20 @@
     font-size: 2.5rem;
   }
 
+  .collection-section .edit-btn,
+  .collections-section .create-btn {
+    margin-top: 0.9rem;
+  }
+
+  .collection-section .edit-btn .btn,
+  .collections-section .create-btn .btn {
+    font-size: 1rem;
+  }
+
+  .collections-section .create-btn .btn span {
+    display: none;
+  }
+
   .collections .collection-item .poster img {
     max-width: 200px;
   }
@@ -176,6 +198,20 @@
 @media screen and (max-width: 500px) {
   .section-title {
     font-size: 2rem;
+  }
+
+  .collection-section .edit-btn,
+  .collections-section .create-btn {
+    margin-top: 0.4rem;
+  }
+
+  .collection-section .edit-btn .btn,
+  .collections-section .create-btn .btn {
+    font-size: 1rem;
+  }
+
+  .collection-section .edit-btn .btn span {
+    display: none;
   }
 
   .collections .collection-item .poster img {
@@ -188,6 +224,24 @@
     font-size: 1.7rem;
     text-align: center;
     margin-bottom: 1rem;
+  }
+
+  .collection-section .edit-btn,
+  .collections-section .create-btn {
+    margin: 0.3rem 1rem 0 0;
+  }
+
+  .collection-section .edit-btn .btn,
+  .collections-section .create-btn span {
+    font-size: 0.8rem;
+  }
+
+  .collection-info {
+    padding: 0 1rem 1rem 1rem;
+  }
+
+  .collection-form {
+    padding: 0 1rem 1rem 1rem;
   }
 
   .collections .collection-item {

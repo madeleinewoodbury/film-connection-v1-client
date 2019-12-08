@@ -14,12 +14,15 @@ const CollectionItem = ({
   const [watched, toggleWatced] = useState(false);
   return (
     <div className="collection-item">
-      <div
-        className={watched ? 'watched' : 'unwatched'}
-        onClick={e => toggleWatced(!watched)}
-      >
-        <i class={watched ? 'fas fa-check' : 'fas fa-plus'}></i>
-      </div>
+      {auth && !isCollection && (
+        <div
+          className={watched ? 'watched' : 'unwatched'}
+          onClick={e => toggleWatced(!watched)}
+        >
+          <i class={watched ? 'fas fa-check' : 'fas fa-plus'}></i>
+        </div>
+      )}
+
       <div className="poster">
         <img src={poster} alt="poster" />
       </div>
@@ -32,7 +35,11 @@ const CollectionItem = ({
               {' '}
               <p className="hide-sm">{description}</p>
               <p>
-                <small>Created By: {author}</small>
+                {auth ? (
+                  <small>Created: 12/7/2019</small>
+                ) : (
+                  <small>Created By: {author}</small>
+                )}
               </p>
             </Fragment>
           ) : (
