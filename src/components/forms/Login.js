@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Auth.css';
+import './Forms.css';
 
 const Login = () => {
   return (
-    <div className="auth">
+    <div className="forms">
       <h1>Sign In</h1>
       <p className="lead">
         <i className="fas fa-user" /> Sign Into Your Account

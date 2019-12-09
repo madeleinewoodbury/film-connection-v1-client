@@ -57,10 +57,22 @@
   flex-direction: column;
 }
 
-.navbar .brand,
-.navbar .brand .fas {
+.navbar .brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1.8rem;
-  letter-spacing: 3px;
+  margin-right: 1rem;
+}
+
+.navbar .brand:hover {
+  opacity: 0.8;
+}
+
+.navbar .brand img {
+  width: 60px;
+  height: auto;
+  margin-right: 0.25rem;
 }
 
 .navbar .nav-links {
@@ -143,11 +155,17 @@
 
 @media screen and (max-width: 375px) {
   .navbar {
-    padding: 0.5rem;
+    padding: 0.5rem 0.3rem;
   }
+
+  .navbar .brand img {
+    width: 40px;
+    margin-right: 0rem;
+  }
+
   .navbar .searchbar input[type='text'] {
     height: 30px;
-    width: 150px;
+    width: 140px;
   }
 
   .navbar .searchbar button {
@@ -158,11 +176,5 @@
   .navbar a,
   .navbar .drop-btn {
     padding: 0.3rem;
-  }
-
-  .navbar .brand,
-  .navbar .brand .fas {
-    font-size: 1.2rem;
-    margin: 0;
   }
 }

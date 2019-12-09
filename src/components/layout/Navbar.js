@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import vhs from './vhs.png';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -8,7 +9,7 @@ const Navbar = () => {
     <Fragment>
       <li>
         <Link to="/discover">
-          <i class="fas fa-plus"></i> <span className="hide-md">Discover</span>
+          <i class="fas fa-tv"></i> <span className="hide-md">Discover</span>
         </Link>
       </li>
       <li className="dropdown">
@@ -33,6 +34,11 @@ const Navbar = () => {
   const guestLinks = (
     <Fragment>
       <li>
+        <Link to="/discover">
+          <i class="fas fa-tv"></i> <span className="hide-md">Discover</span>
+        </Link>
+      </li>
+      <li>
         <Link to="/login">
           <i class="fas fa-sign-in-alt hide-lg"></i>{' '}
           <span className="hide-sm">Login</span>
@@ -50,7 +56,8 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <Link to="/" className="brand">
-        <i class="fas fa-film"></i> <span className="hide-md">FC</span>
+        <img src={vhs} alt="logo" />
+        <span className="hide-md">FC</span>
       </Link>
       {loggedIn && (
         <div className="searchbar">
