@@ -6,7 +6,7 @@ const EditCollection = () => {
     <div className="forms">
       <h1>Edit Collection</h1>
       <p className="lead">
-        <i className="fas fa-pen-square" /> Edit your collection details
+        <i className="fas fa-edit" /> Edit your collection details
       </p>
       <form className="form">
         <div className="form-group">

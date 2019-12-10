@@ -7,6 +7,10 @@
   position: relative;
 }
 
+.collections {
+  margin-bottom: 1rem;
+}
+
 .collection-section .edit-btn,
 .collections-section .create-btn {
   position: absolute;
@@ -34,10 +38,15 @@
 .collection-item .watched,
 .collection-item .unwatched {
   position: absolute;
-  padding: 0.2rem 0.4rem;
+  padding: 0.3rem 0.5rem;
   cursor: pointer;
-  opacity: 0.9;
+  opacity: 0.8;
   color: var(--light-color);
+}
+
+.collection-item .watched:hover,
+.collection-item .unwatched:hover {
+  opacity: 0.9;
 }
 
 .collection-item .watched {
@@ -105,7 +114,7 @@
 }
 
 .collections .collection-item .poster img {
-  max-width: 120px;
+  width: 150px;
   height: 100%;
 }
 
@@ -166,7 +175,7 @@
     margin-bottom: 0.5rem;
   }
 
-  .discover .collections .collection-item .info p:nth-of-type(2) {
+  .collections .collection-item .info .title small {
     display: none;
   }
 }
@@ -174,6 +183,10 @@
 @media screen and (max-width: 680px) {
   .section-title {
     font-size: 2.5rem;
+  }
+
+  .collections .collection-item .info .title p {
+    font-size: 0.9rem;
   }
 
   .collection-section .edit-btn,
@@ -191,7 +204,7 @@
   }
 
   .collections .collection-item .poster img {
-    max-width: 200px;
+    max-width: 300px;
   }
 }
 
@@ -216,6 +229,11 @@
 
   .collections .collection-item .poster img {
     max-width: 100px;
+  }
+
+  .collection-item .watched,
+  .collection-item .unwatched {
+    padding: 0.2rem 0.4rem;
   }
 }
 

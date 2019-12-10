@@ -12,6 +12,9 @@ const CollectionItem = ({
   id
 }) => {
   const [watched, toggleWatced] = useState(false);
+  if (description && description.length > 120) {
+    description = description.slice(0, 120) + '...';
+  }
   return (
     <div className="collection-item">
       {auth && !isCollection && (
@@ -19,7 +22,7 @@ const CollectionItem = ({
           className={watched ? 'watched' : 'unwatched'}
           onClick={e => toggleWatced(!watched)}
         >
-          <i class={watched ? 'fas fa-check' : 'fas fa-plus'}></i>
+          <i class={watched ? 'fas fa-check' : 'fas fa-check'}></i>
         </div>
       )}
 

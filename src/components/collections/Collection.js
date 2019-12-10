@@ -31,7 +31,12 @@ const Collection = () => {
         </h4>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
-          obcaecati repellendus magni amet similique minus?
+          obcaecati repellendus magni amet similique minus?Lorem ipsum dolor sit
+          amet consectetur adipisicing elit. Repudiandae obcaecati repellendus
+          magni amet similique minus?Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Repudiandae obcaecati repellendus magni amet
+          similique minus?Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Repudiandae obcaecati repellendus magni amet similique minus?
         </p>
       </div>
       <div className="collection-form">
