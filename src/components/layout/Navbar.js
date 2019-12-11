@@ -1,17 +1,36 @@
-import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Fragment, useState } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/auth';
+import { searchMovie } from '../../actions/movies';
 import vhs from './vhs.png';
 import './Navbar.css';
 import PropTypes from 'prop-types';
 
-const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
+const Navbar = ({
+  auth: { isAuthenticated, loading },
+  logout,
+  searchMovie,
+  history
+}) => {
+  const [search, setSearchData] = useState('');
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    searchMovie(search, history);
+  };
+
   const authLinks = (
     <Fragment>
       <div className="searchbar">
-        <form>
-          <input type="text" placeholder="Search films..." />
+        <form onSubmit={e => handleSubmit(e)}>
+          <input
+            type="text"
+            placeholder="Search films..."
+            name="search"
+            value={search}
+            onChange={e => setSearchData(e.target.value)}
+          />
           <button type="submit">
             <i class="fas fa-search"></i>
           </button>
@@ -78,14 +97,13 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
       {!loading && (
         <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
       )}
-
-      {/* <ul className="nav-links">{loggedIn ? userLinks : guestLinks}</ul> */}
     </nav>
   );
 };
 
 Navbar.propTypes = {
   logout: PropTypes.func.isRequired,
+  searchMovie: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 };
 
@@ -93,4 +111,6 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { logout })(Navbar);
+export default connect(mapStateToProps, { logout, searchMovie })(
+  withRouter(Navbar)
+);
