@@ -7,9 +7,10 @@ export const searchMovie = (title, history) => async dispatch => {
     const res = await axios.get(`/api/v1/movies/${title}`);
     dispatch({
       type: MOVIE_SEARCH,
-      payload: res.data
+      payload: res.data,
+      title
     });
-    history.push('/dashboard');
+    history.push('/movies');
   } catch (err) {
     dispatch({
       type: MOVIE_ERROR,

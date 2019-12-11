@@ -53,7 +53,7 @@ const CollectionItem = ({
         </div>
         <div className="link">
           {isCollection ? (
-            <Link to="/movies" className="btn">
+            <Link to="/collection" className="btn">
               {auth ? 'View' : 'Explore'}
             </Link>
           ) : (

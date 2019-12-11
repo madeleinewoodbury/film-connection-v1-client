@@ -1,0 +1,40 @@
+.movies .results {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.movies .results .search-result {
+  display: flex;
+  margin-bottom: 1rem;
+  background-color: var(--dark-color);
+  box-shadow: 1px 2px 3px -1px rgba(0, 0, 0, 0.51);
+  cursor: pointer;
+}
+
+.movies .results .search-result:hover {
+  opacity: 0.8;
+}
+
+.movies .results .search-result:nth-of-type(even) {
+  display: flex;
+  margin-bottom: 1rem;
+  background-color: var(--light-color);
+}
+
+.movies .results .search-result img {
+  max-width: 50px;
+  height: auto;
+  margin-right: 1rem;
+}
+
+.movies .results .search-result h2 {
+  font-size: 1.2rem;
+  color: white;
+  align-self: center;
+  justify-self: center;
+}
+
+.movies .results .search-result:nth-of-type(even) h2 {
+  color: black;
+}

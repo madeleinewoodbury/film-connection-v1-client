@@ -5,6 +5,7 @@ import Login from '../forms/Login';
 import Dashboard from '../dashboard/Dashboard';
 import Discover from '../collections/Discover';
 import Movie from '../movie/Movie';
+import Movies from '../movie/Movies';
 import Collection from '../collections/Collection';
 import Collections from '../collections/Collections';
 import CreateCollection from '../forms/CreateCollection';
@@ -21,7 +22,8 @@ const Routes = () => {
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/discover" component={Discover} />
         <Route exact path="/movie" component={Movie} />
-        <Route exact path="/movies" component={Collection} />
+        <Route exact path="/movies" component={Movies} />
+        <Route exact path="/collection" component={Collection} />
         <Route exact path="/collections" component={Collections} />
         <Route exact path="/create" component={CreateCollection} />
         <Route exact path="/edit" component={EditCollection} />
