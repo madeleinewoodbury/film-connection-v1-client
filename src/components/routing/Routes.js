@@ -9,10 +9,12 @@ import Collection from '../collections/Collection';
 import Collections from '../collections/Collections';
 import CreateCollection from '../forms/CreateCollection';
 import EditCollection from '../forms/EditCollection';
+import Alert from '../layout/Alert';
 
 const Routes = () => {
   return (
     <section className="container">
+      <Alert />
       <Switch>
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />

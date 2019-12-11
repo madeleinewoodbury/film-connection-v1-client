@@ -1,23 +1,55 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { setAlert } from '../../actions/alert';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './Forms.css';
 
-const Register = () => {
+const Register = ({ setAlert }) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    password2: ''
+  });
+
+  const { name, email, password, password2 } = formData;
+
+  const handleChange = e =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    if (password !== password2) {
+      setAlert('Bah', 'danger', 3000);
+    }
+  };
+
   return (
     <div className="forms">
       <h1>Sign Up</h1>
       <p className="lead">
         <i className="fas fa-user" /> Create Your Account
       </p>
-      <form className="form">
+      <form className="form" onSubmit={e => handleSubmit(e)}>
         <div className="form-group">
-          <input type="text" placeholder="Name" name="name" required />
+          <input
+            type="text"
+            placeholder="Name"
+            name="name"
+            value={name}
+            onChange={e => handleChange(e)}
+            required
+          />
         </div>
         <div className="form-group">
           <input
             type="email"
             placeholder="Email Address"
             name="email"
+            value={email}
+            onChange={e => handleChange(e)}
             required
           />
         </div>
@@ -27,6 +59,8 @@ const Register = () => {
             placeholder="Password"
             name="password"
             minLength="6"
+            value={password}
+            onChange={e => handleChange(e)}
           />
         </div>
         <div className="form-group">
@@ -35,6 +69,8 @@ const Register = () => {
             placeholder="Confirm Password"
             name="password2"
             minLength="6"
+            value={password2}
+            onChange={e => handleChange(e)}
           />
         </div>
         <input type="submit" className="btn" value="Sign Up" />
@@ -46,4 +82,8 @@ const Register = () => {
   );
 };
 
-export default Register;
+Register.propTypes = {
+  setAlert: PropTypes.func.isRequired
+};
+
+export default connect(null, { setAlert })(Register);
