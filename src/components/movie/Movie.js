@@ -1,57 +1,79 @@
-import React from 'react';
+import React, { useEffect, Fragment } from 'react';
+import Spinner from '../layout/Spinner';
 import './Movie.css';
+import { connect } from 'react-redux';
+import { getMovie } from '../../actions/movies';
+import PropTypes from 'prop-types';
 
-const Movie = () => {
+const Movie = ({ movies: { movie, loading }, getMovie, match }) => {
+  useEffect(() => {
+    getMovie(match.params.id);
+  }, [getMovie, match.params.id]);
+  console.log(movie);
   return (
-    <div className="movie">
-      <h1 className="title">Downtown Abbey (2019)</h1>
-      <div className="info">
-        <span className="rating">PG</span>
-        <span className="runtime">122 min</span>
-        <span className="genre">Drama, Romance</span>
-        <span className="released">20 Sep 2019 (UK)</span>
-      </div>
-      <div className="content">
-        <div className="poster">
-          <img
-            src="https://m.media-amazon.com/images/M/MV5BMmQxNGRkMjYtZTAyMy00MDUyLThiNmYtODI1NTkyNmI0ZTNlXkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_SX300.jpg"
-            alt="movie poster"
-          />
-        </div>
-        <div className="about">
-          <p className="plot">
-            The continuing story of the Crawley family, wealthy owners of a
-            large estate in the English countryside in the early 20th century.
-          </p>
-
-          <div className="credits">
-            <p className="director">
-              <strong>Director: </strong>Michael Engler
-            </p>
-            <p className="writer">
-              <strong>Writer: </strong>Julian Fellowes (characters), Julian
-              Fellowes (screenplay by)
-            </p>
-            <p className="stars">
-              <strong>Stars: </strong>Matthew Goode, Tuppence Middleton, Maggie
-              Smith, Michelle Dockery
-            </p>
+    <Fragment>
+      {movie === null || loading ? (
+        <Spinner />
+      ) : (
+        <div className="movie">
+          <h1 className="title">
+            {movie.Title} ({movie.Year})
+          </h1>
+          <div className="info">
+            <span className="rating">{movie.Rated}</span>
+            <span className="runtime">{movie.Runtime}</span>
+            <span className="genre">{movie.Genre}</span>
+            <span className="released">
+              {movie.Released} ({movie.Country})
+            </span>
           </div>
+          <div className="content">
+            <div className="poster">
+              <img src={movie.Poster} alt={`${movie.Title} poster`} />
+            </div>
+            <div className="about">
+              <p className="plot">{movie.Plot}</p>
+
+              <div className="credits">
+                <p className="director">
+                  <strong>Director: </strong>
+                  {movie.Director}
+                </p>
+                <p className="writer">
+                  <strong>Writer: </strong>
+                  {movie.Writer}
+                </p>
+                <p className="stars">
+                  <strong>Stars: </strong>
+                  {movie.Actors}
+                </p>
+              </div>
+            </div>
+          </div>
+          <form className="form">
+            <div className="form-group">
+              <select name="collection">
+                <option value="0">Select Collection</option>
+                <option value="Watchlist">Watchlist</option>
+                <option value="Awesome Movives">Awesome Movies</option>
+                <option value="British Gems">British Gems</option>
+              </select>
+            </div>
+            <input type="submit" className="btn" value="Add to Collection" />
+          </form>
         </div>
-      </div>
-      <form className="form">
-        <div className="form-group">
-          <select name="collection">
-            <option value="0">Select Collection</option>
-            <option value="Watchlist">Watchlist</option>
-            <option value="Awesome Movives">Awesome Movies</option>
-            <option value="British Gems">British Gems</option>
-          </select>
-        </div>
-        <input type="submit" className="btn" value="Add to Collection" />
-      </form>
-    </div>
+      )}
+    </Fragment>
   );
 };
 
-export default Movie;
+Movie.propTypes = {
+  getMovie: PropTypes.func.isRequired,
+  movies: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  movies: state.movies
+});
+
+export default connect(mapStateToProps, { getMovie })(Movie);

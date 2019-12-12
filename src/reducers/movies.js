@@ -1,4 +1,4 @@
-import { MOVIE_SEARCH, MOVIE_ERROR } from '../actions/types';
+import { MOVIE_SEARCH, GET_MOVIE, MOVIE_ERROR } from '../actions/types';
 
 const initialState = {
   movies: [],
@@ -11,6 +11,12 @@ const initialState = {
 export default function(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
+    case GET_MOVIE:
+      return {
+        ...state,
+        movie: payload,
+        loading: false
+      };
     case MOVIE_SEARCH:
       return {
         ...state,

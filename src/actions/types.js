@@ -8,4 +8,5 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOGOUT = 'LOGOUT';
 export const MOVIE_SEARCH = 'MOVIE_SEARCH';
+export const GET_MOVIE = 'GET_MOVIE';
 export const MOVIE_ERROR = 'MOVIE_ERROR';

@@ -6,7 +6,7 @@ import './Movies.css';
 
 const Movies = ({ movies: { movies, search, loading } }) => {
   const searchResult = movies.map(movie => (
-    <Link to="/movie" className="search-result">
+    <Link to={`/movie/${movie.imdbID}`} className="search-result">
       <img src={movie.Poster} alt={`${movie.Title} poster`} />
       <h2>
         {movie.Title} ({movie.Year})
