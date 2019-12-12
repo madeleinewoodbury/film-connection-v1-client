@@ -1,4 +1,5 @@
 import React from 'react';
+import Spinner from '../layout/Spinner';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -13,11 +14,14 @@ const Movies = ({ movies: { movies, search, loading } }) => {
       </h2>
     </Link>
   ));
-  console.log(movies);
   return (
     <section className="movies">
       <h1 className="section-title">Showing search results for {search}</h1>
-      <div className="results">{searchResult}</div>
+      {movies === [] || loading ? (
+        <Spinner />
+      ) : (
+        <div className="results">{searchResult}</div>
+      )}
     </section>
   );
 };

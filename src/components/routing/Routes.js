@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import PrivateRoute from './PrivateRoute';
 import Register from '../forms/Register';
 import Login from '../forms/Login';
 import Dashboard from '../dashboard/Dashboard';
@@ -19,7 +20,7 @@ const Routes = () => {
       <Switch>
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/dashboard" component={Dashboard} />
+        <PrivateRoute exact path="/dashboard" component={Dashboard} />
         <Route exact path="/discover" component={Discover} />
         <Route exact path="/movie/:id" component={Movie} />
         <Route exact path="/movies" component={Movies} />

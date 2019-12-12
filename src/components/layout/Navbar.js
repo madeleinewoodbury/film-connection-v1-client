@@ -8,7 +8,7 @@ import './Navbar.css';
 import PropTypes from 'prop-types';
 
 const Navbar = ({
-  auth: { isAuthenticated, loading },
+  auth: { isAuthenticated, loading, user },
   logout,
   searchMovie,
   history
@@ -18,6 +18,7 @@ const Navbar = ({
   const handleSubmit = e => {
     e.preventDefault();
     searchMovie(search, history);
+    setSearchData('');
   };
 
   const authLinks = (
@@ -45,7 +46,9 @@ const Navbar = ({
         <li className="dropdown">
           <Link to="#!" disaled="true" className="drop-btn">
             <i class="fas fa-user"></i>{' '}
-            <span className="hide-md">Madeleine</span>
+            <span className="hide-md">
+              {user && user.name.trim().split(' ')[0]}
+            </span>
           </Link>
           <div class="dropdown-content">
             <Link to="/dashboard">
