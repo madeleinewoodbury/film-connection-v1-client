@@ -10,3 +10,5 @@ export const LOGOUT = 'LOGOUT';
 export const MOVIE_SEARCH = 'MOVIE_SEARCH';
 export const GET_MOVIE = 'GET_MOVIE';
 export const MOVIE_ERROR = 'MOVIE_ERROR';
+export const GET_COLLECTION = 'GET_COLLECTION';
+export const COLLECTION_ERROR = 'COLLECTION_ERROR';
