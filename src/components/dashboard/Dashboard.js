@@ -1,11 +1,16 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import Spinner from '../layout/Spinner';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import movieQuotes from 'movie-quotes';
 import './Dashboard.css';
 import PropTypes from 'prop-types';
 
 const Dashboard = ({ auth: { user, loading } }) => {
+  const [movieQuote, setMovieQuote] = useState('');
+  useEffect(() => {
+    setMovieQuote(movieQuotes.random());
+  }, []);
   return (
     <Fragment>
       {user === null || loading ? (
@@ -15,10 +20,7 @@ const Dashboard = ({ auth: { user, loading } }) => {
           <h1 className="section-title">
             Hi {user && user.name.trim().split(' ')[0]}
           </h1>
-          <p className="movie-quote">
-            “I'm going to make him an offer he can't refuse.” The Godfather,
-            1972{' '}
-          </p>
+          <p className="movie-quote">{movieQuote !== '' && movieQuote}</p>
           <div className="dashboard-info">
             <p>
               <strong>Collections: </strong>3
