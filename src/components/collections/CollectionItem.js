@@ -1,26 +1,30 @@
 import React, { Fragment, useState } from 'react';
+import { connect } from 'react-redux';
+import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const CollectionItem = ({
-  poster,
+  id,
   title,
+  poster,
   description,
-  author,
-  auth,
-  year,
   isCollection,
-  id
+  date,
+  year,
+  author,
+  auth: { isAuthenticated, user }
 }) => {
-  const [watched, toggleWatced] = useState(false);
+  const [watched, toggleWatched] = useState(false);
   if (description && description.length > 120) {
     description = description.slice(0, 120) + '...';
   }
   return (
     <div className="collection-item">
-      {auth && !isCollection && (
+      {isAuthenticated && !isCollection && (
         <div
           className={watched ? 'watched' : 'unwatched'}
-          onClick={e => toggleWatced(!watched)}
+          onClick={e => toggleWatched(!watched)}
         >
           <i class={watched ? 'fas fa-check' : 'fas fa-check'}></i>
         </div>
@@ -38,8 +42,10 @@ const CollectionItem = ({
               {' '}
               <p className="hide-sm">{description}</p>
               <p>
-                {auth ? (
-                  <small>Created: 12/7/2019</small>
+                {isAuthenticated && user.name === author ? (
+                  <small>
+                    Created: <Moment format="YYYY/MM/DD">{date}</Moment>
+                  </small>
                 ) : (
                   <small>Created By: {author}</small>
                 )}
@@ -53,17 +59,17 @@ const CollectionItem = ({
         </div>
         <div className="link">
           {isCollection ? (
-            <Link to="/collection" className="btn">
-              {auth ? 'View' : 'Explore'}
+            <Link to={`/collection/${id}`} className="btn">
+              {isAuthenticated && user.name === author ? 'View' : 'Explore'}
             </Link>
           ) : (
-            <Link to="/movie" className="btn">
+            <Link to={`/movie/${id}`} className="btn">
               See More
             </Link>
           )}
         </div>
       </div>
-      {auth && (
+      {isAuthenticated && user.name === author && (
         <div className="delete">
           <i class="fas fa-trash-alt"></i>
         </div>
@@ -72,4 +78,12 @@ const CollectionItem = ({
   );
 };
 
-export default CollectionItem;
+CollectionItem.propTypes = {
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps, {})(CollectionItem);

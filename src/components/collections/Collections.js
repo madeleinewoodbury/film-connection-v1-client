@@ -1,43 +1,68 @@
-import React from 'react';
+import React, { useEffect, Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getUserCollections } from '../../actions/collections';
+import PropTypes from 'prop-types';
 import './Collections.css';
 import CollectionItem from './CollectionItem';
+import Spinner from '../layout/Spinner';
+import vhs from '../layout/vhs_vertical.png';
 
-const Collections = () => {
-  const auth = true;
+const Collections = ({
+  getUserCollections,
+  collections: { collections, loading },
+  auth: { isAuthenticated }
+}) => {
+  useEffect(() => {
+    getUserCollections();
+  }, [getUserCollections]);
 
   return (
     <section className="collections-section">
-      {auth && (
-        <div className="create-btn">
-          <Link to="/create" className="btn">
-            <i className="fas fa-plus"></i> <span>New Collection</span>
-          </Link>
-        </div>
+      {collections === [] || loading ? (
+        <Spinner />
+      ) : (
+        <Fragment>
+          {isAuthenticated && (
+            <div className="create-btn">
+              <Link to="/create" className="btn">
+                <i className="fas fa-plus"></i> <span>New Collection</span>
+              </Link>
+            </div>
+          )}
+          <h1 className="section-title">Your Film Collections</h1>
+          <div className="collections">
+            {collections.map(collection => (
+              <CollectionItem
+                key={collection._id}
+                id={collection._id}
+                title={collection.title}
+                poster={
+                  collection.films.length > 0 ? collection.films[0].poster : vhs
+                }
+                description={collection.description}
+                date={collection.createdAt}
+                author={collection.user.name}
+                isCollection
+                auth={isAuthenticated}
+              />
+            ))}
+          </div>
+        </Fragment>
       )}
-      <h1 className="section-title">Your Film Collections</h1>
-      <div className="collections">
-        <CollectionItem
-          poster="https://m.media-amazon.com/images/M/MV5BMmQxNGRkMjYtZTAyMy00MDUyLThiNmYtODI1NTkyNmI0ZTNlXkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_SX300.jpg"
-          title="British Gems"
-          description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            reprehenderit numquam animi!"
-          author="Madeleine Woodbury"
-          auth={auth}
-          isCollection
-        />
-        <CollectionItem
-          poster="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"
-          title="Cool Movies"
-          description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            reprehenderit numquam animi!"
-          author="Madeleine Woodbury"
-          auth={auth}
-          isCollection
-        />
-      </div>
     </section>
   );
 };
 
-export default Collections;
+Collections.propTypes = {
+  getUserCollections: PropTypes.func.isRequired,
+  collections: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  collections: state.collections,
+  auth: state.auth
+});
+
+export default connect(mapStateToProps, { getUserCollections })(Collections);

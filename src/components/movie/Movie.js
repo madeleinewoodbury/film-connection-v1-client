@@ -9,7 +9,6 @@ const Movie = ({ movies: { movie, loading }, getMovie, match }) => {
   useEffect(() => {
     getMovie(match.params.id);
   }, [getMovie, match.params.id]);
-  console.log(movie);
   return (
     <Fragment>
       {movie === null || loading ? (

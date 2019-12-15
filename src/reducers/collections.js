@@ -1,4 +1,9 @@
-import { GET_COLLECTION, COLLECTION_ERROR } from '../actions/types';
+import {
+  GET_COLLECTION,
+  GET_COLLECTIONS,
+  CLEAR_COLLECTIONS,
+  COLLECTION_ERROR
+} from '../actions/types';
 
 const initialState = {
   collections: [],
@@ -16,10 +21,22 @@ export default function(state = initialState, action) {
         collection: payload,
         loading: false
       };
+    case GET_COLLECTIONS:
+      return {
+        ...state,
+        collections: payload,
+        loading: false
+      };
     case COLLECTION_ERROR:
       return {
         ...state,
         error: payload,
+        loading: false
+      };
+    case CLEAR_COLLECTIONS:
+      return {
+        collections: [],
+        collection: null,
         loading: false
       };
     default:

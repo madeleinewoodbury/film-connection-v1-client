@@ -1,4 +1,9 @@
-import { GET_COLLECTION, COLLECTION_ERROR } from './types';
+import {
+  GET_COLLECTION,
+  GET_COLLECTIONS,
+  CLEAR_COLLECTIONS,
+  COLLECTION_ERROR
+} from './types';
 import { setAlert } from './alert';
 import axios from 'axios';
 
@@ -24,6 +29,58 @@ export const createCollection = (formData, history) => async dispatch => {
     if (errors) {
       errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
     }
+    dispatch({
+      type: COLLECTION_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
+
+// Get all collections
+export const getCollections = () => async dispatch => {
+  try {
+    const res = await axios.get(`/api/v1/collections`);
+    dispatch({
+      type: GET_COLLECTIONS,
+      payload: res.data
+    });
+  } catch (err) {
+    dispatch({
+      type: COLLECTION_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
+
+// Get current user's collections
+export const getUserCollections = () => async dispatch => {
+  dispatch({
+    type: CLEAR_COLLECTIONS
+  });
+
+  try {
+    const res = await axios.get(`/api/v1/collections/me`);
+    dispatch({
+      type: GET_COLLECTIONS,
+      payload: res.data
+    });
+  } catch (err) {
+    dispatch({
+      type: COLLECTION_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
+
+// Get collection by id
+export const getCollectionById = id => async dispatch => {
+  try {
+    const res = await axios.get(`/api/v1/collections/${id}`);
+    dispatch({
+      type: GET_COLLECTION,
+      payload: res.data
+    });
+  } catch (err) {
     dispatch({
       type: COLLECTION_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status }
