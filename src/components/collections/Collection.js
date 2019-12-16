@@ -37,7 +37,7 @@ const Collection = ({
         <Fragment>
           {isAuthenticated && user.name === collection.user.name && (
             <div className="edit-btn">
-              <Link to="/edit" className="btn">
+              <Link to={`/edit/${collection._id}`} className="btn">
                 <i className="fas fa-edit"></i> <span>Edit Collection</span>
               </Link>
             </div>

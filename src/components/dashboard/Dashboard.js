@@ -11,6 +11,7 @@ const Dashboard = ({ auth: { user, loading } }) => {
   useEffect(() => {
     setMovieQuote(movieQuotes.random());
   }, []);
+
   return (
     <Fragment>
       {user === null || loading ? (
@@ -23,10 +24,12 @@ const Dashboard = ({ auth: { user, loading } }) => {
           <p className="movie-quote">{movieQuote !== '' && movieQuote}</p>
           <div className="dashboard-info">
             <p>
-              <strong>Collections: </strong>3
+              <strong>Collections: </strong>
+              {user.numOfCollections}
             </p>
             <p>
-              <strong>Films: </strong>24
+              <strong>Films: </strong>
+              {user.numOfFilms}
             </p>
           </div>
           <div className="dashboard-buttons">
@@ -47,7 +50,8 @@ const Dashboard = ({ auth: { user, loading } }) => {
 };
 
 Dashboard.propTypes = {
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  getUserCollections: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({

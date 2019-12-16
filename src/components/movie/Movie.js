@@ -1,11 +1,17 @@
 import React, { useEffect, Fragment } from 'react';
 import Spinner from '../layout/Spinner';
+import vhs from '../layout/vhs_vertical.png';
 import './Movie.css';
 import { connect } from 'react-redux';
 import { getMovie } from '../../actions/movies';
 import PropTypes from 'prop-types';
 
-const Movie = ({ movies: { movie, loading }, getMovie, match }) => {
+const Movie = ({
+  movies: { movie, loading },
+  getMovie,
+  auth: { isAuthenticated },
+  match
+}) => {
   useEffect(() => {
     getMovie(match.params.id);
   }, [getMovie, match.params.id]);
@@ -28,7 +34,10 @@ const Movie = ({ movies: { movie, loading }, getMovie, match }) => {
           </div>
           <div className="content">
             <div className="poster">
-              <img src={movie.Poster} alt={`${movie.Title} poster`} />
+              <img
+                src={movie.Poster === 'N/A' ? vhs : movie.Poster}
+                alt={`${movie.Title} poster`}
+              />
             </div>
             <div className="about">
               <p className="plot">{movie.Plot}</p>
@@ -49,17 +58,19 @@ const Movie = ({ movies: { movie, loading }, getMovie, match }) => {
               </div>
             </div>
           </div>
-          <form className="form">
-            <div className="form-group">
-              <select name="collection">
-                <option value="0">Select Collection</option>
-                <option value="Watchlist">Watchlist</option>
-                <option value="Awesome Movives">Awesome Movies</option>
-                <option value="British Gems">British Gems</option>
-              </select>
-            </div>
-            <input type="submit" className="btn" value="Add to Collection" />
-          </form>
+          {isAuthenticated && (
+            <form className="form">
+              <div className="form-group">
+                <select name="collection">
+                  <option value="0">Select Collection</option>
+                  <option value="Watchlist">Watchlist</option>
+                  <option value="Awesome Movives">Awesome Movies</option>
+                  <option value="British Gems">British Gems</option>
+                </select>
+              </div>
+              <input type="submit" className="btn" value="Add to Collection" />
+            </form>
+          )}
         </div>
       )}
     </Fragment>
@@ -68,11 +79,13 @@ const Movie = ({ movies: { movie, loading }, getMovie, match }) => {
 
 Movie.propTypes = {
   getMovie: PropTypes.func.isRequired,
-  movies: PropTypes.object.isRequired
+  movies: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  movies: state.movies
+  movies: state.movies,
+  auth: state.auth
 });
 
 export default connect(mapStateToProps, { getMovie })(Movie);

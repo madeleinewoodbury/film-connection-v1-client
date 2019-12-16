@@ -3,12 +3,16 @@ import Spinner from '../layout/Spinner';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import vhs from '../layout/vhs_vertical.png';
 import './Movies.css';
 
 const Movies = ({ movies: { movies, search, loading } }) => {
   const searchResult = movies.map(movie => (
     <Link to={`/movie/${movie.imdbID}`} className="search-result">
-      <img src={movie.Poster} alt={`${movie.Title} poster`} />
+      <img
+        src={movie.Poster === 'N/A' ? vhs : movie.Poster}
+        alt={`${movie.Title} poster`}
+      />
       <h2>
         {movie.Title} ({movie.Year})
       </h2>

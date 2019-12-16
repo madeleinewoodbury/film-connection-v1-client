@@ -27,7 +27,7 @@ const Routes = () => {
         <Route exact path="/collection/:id" component={Collection} />
         <Route exact path="/collections" component={Collections} />
         <Route exact path="/create" component={CreateCollection} />
-        <Route exact path="/edit" component={EditCollection} />
+        <Route exact path="/edit/:id" component={EditCollection} />
       </Switch>
     </section>
   );
